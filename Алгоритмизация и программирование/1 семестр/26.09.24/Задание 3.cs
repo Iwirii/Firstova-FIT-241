@@ -20,10 +20,24 @@ class Test
                 max = a;
             }
             else
-            if ( a < max && ( a > max2 || max2 == max ) )
-                    max2 = a;
-    }
-        Console.WriteLine(max);
-        Console.WriteLine(max2);
+            if (a < max && a > max2)
+            {
+                max2 = a;
+            }
+            else
+            if (a==max)
+            {
+                max2 = max;
+            }
+        }
+        if (max == max2)
+        {
+            Console.WriteLine(max);
+        }
+        else
+        {
+            Console.WriteLine(max);
+            Console.WriteLine(max2);
+        }
     }
 }
