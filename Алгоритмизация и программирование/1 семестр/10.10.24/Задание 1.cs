@@ -5,7 +5,7 @@ public class Test
 	{
 		int a,result=0;
 		a=Convert.ToInt32(Console.ReadLine());
-		while(a>=0)
+		while(a>0)
 		{
     		while(a>0)
     		{
