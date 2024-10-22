@@ -2,28 +2,78 @@
 using System;
 public class Test
 {
-	public static void Main()
-	{
-	    int a,sum=0;
-	    int n = Convert.ToInt32(Console.ReadLine());
-        int maxi=0;
-        for (int i=0;i<n;i++)
+    public static void Main()
+    {
+        int a,currsum=0, maxsum=0,cnt=1, ch=0;
+        Console.WriteLine("Введите кол-во чисел:");
+        int n = Convert.ToInt32(Console.ReadLine());
+        Console.WriteLine("Введите первое число:");
+        a = Convert.ToInt32(Console.ReadLine());
+        bool flag = false;
+        while (cnt < n)
         {
-            a = Convert.ToInt32(Console.ReadLine());  
-            if (a%2==0)
+            if (Math.Abs(a) % 2 == 0)
             {
-                sum+=a;
+                ch = a;
+                flag= true;
+                break;
             }
-            else
-            {
-                if (sum>0) 
-                {
-                    maxi=Math.Max(sum,maxi);
-                }
-            sum=0;
-            }
+            Console.WriteLine("Введите следующее число:");
+            a = Convert.ToInt32(Console.ReadLine());
+            cnt += 1;
         }
-        maxi=Math.Max(sum,maxi);
-        Console.WriteLine(maxi);
+        if (flag == false)
+        {
+            Console.WriteLine("Чётных чисел нет");
+        }
+        else
+        {
+            while (cnt < n)
+            {
+                if (Math.Abs(ch) % 2 == 0)
+                {
+                    maxsum += ch;
+                }
+                else
+                {
+                    break;
+                }
+                cnt += 1;
+                Console.WriteLine("Введите следующее число:");
+                ch = Convert.ToInt32(Console.ReadLine());
+                if (cnt == n)
+                {
+                    if (Math.Abs(ch) % 2 == 0)
+                    {
+                        maxsum += ch;
+                    }
+                }
+            }
+            currsum = maxsum;
+            while (cnt < n)
+            {
+                if (Math.Abs(ch) % 2 == 0)
+                {
+                    currsum += ch;
+                }
+                else
+                {
+                    maxsum = Math.Max(currsum, maxsum);
+                    currsum = 0;
+                }
+                Console.WriteLine("Введите следующее число:");
+                ch = Convert.ToInt32(Console.ReadLine());
+                cnt += 1;
+                if (cnt == n)
+                {
+                    if (Math.Abs(ch) % 2 == 0)
+                    {
+                        currsum += ch;
+                    }
+                }
+            }
+            maxsum = Math.Max(currsum, maxsum);
+            Console.WriteLine(maxsum);
+        }
     }
 }
