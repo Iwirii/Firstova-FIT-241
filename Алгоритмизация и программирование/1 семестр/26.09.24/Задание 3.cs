@@ -4,39 +4,50 @@ class Test
 {
     static void Main()
     {
-        int n, a, max, max2;
+        int n, a, b, c, maxi, max2;
         Console.WriteLine("Введите количество чисел в последовательности:");
         n = Convert.ToInt32(Console.ReadLine());
         Console.WriteLine("Введите число:");
         a = Convert.ToInt32(Console.ReadLine());
-        max = max2 = a;
-        for (int i = 1; i < n; i++)
+        Console.WriteLine("Введите число:");
+        b = Convert.ToInt32(Console.ReadLine());
+        if (a>b)
         {
-            Console.WriteLine("Введите число:");
-            a = Convert.ToInt32(Console.ReadLine());
-            if (a > max)
-            {
-                max2 = max;
-                max = a;
-            }
-            else
-            if (a < max && a > max2)
-            {
-                max2 = a;
-            }
-            else
-            if (a==max)
-            {
-                max2 = max;
-            }
-        }
-        if (max == max2)
-        {
-            Console.WriteLine(max);
+            maxi=a;
+            max2=b;
         }
         else
         {
-            Console.WriteLine(max);
+            maxi = b;
+            max2 = a;
+        }
+        for (int i = 2; i < n; i++)
+        {
+            Console.WriteLine("Введите число:");
+            c = Convert.ToInt32(Console.ReadLine());
+            if (c > maxi)
+            {
+                max2 = maxi;
+                maxi = c;
+            }
+            else
+            if (c < maxi && c > max2)
+            {
+                max2 = c;
+            }
+            else
+            if (c == maxi)
+            {
+                max2 = maxi;
+            }
+        }
+        if (maxi == max2)
+        {
+            Console.WriteLine(maxi);
+        }
+        else
+        {
+            Console.WriteLine(maxi);
             Console.WriteLine(max2);
         }
     }
