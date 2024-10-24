@@ -24,7 +24,7 @@ class Test
         Console.WriteLine("Массив:");
         for (int i = 0; i < n; i++)
         {
-            Console.Write(chet[i] + "");
+            Console.Write(chet[i] + " ");
         }
     }
 }
