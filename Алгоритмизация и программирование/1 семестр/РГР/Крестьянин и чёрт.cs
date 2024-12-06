@@ -11,7 +11,6 @@ class Program
             int z = n / k;
             res += z;
         }
-
         Console.WriteLine(res);
     }
 }
