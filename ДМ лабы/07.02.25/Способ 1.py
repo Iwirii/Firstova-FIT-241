@@ -11,7 +11,7 @@ for i in range(cnt_vershin):
         komponenta = []
         queue = [i]
         visited[i] = True
-        while len(queue)>0:
+        while len(queue) > 0:
             current_vertex = queue.pop(0)
             komponenta.append(current_vertex + 1)
             for j in range(cnt_vershin):
