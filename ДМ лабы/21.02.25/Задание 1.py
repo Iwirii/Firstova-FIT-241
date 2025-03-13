@@ -14,16 +14,16 @@ def kruskal(matrix):
     edges.sort()
 
     parent = list(range(len(matrix)))
-    mst_edges = []
+    min_edges = []
     for edge in edges:
         weight, u, v = edge
         root_u = find_parent(parent, u)
         root_v = find_parent(parent, v)
         if root_u != root_v:
-            mst_edges.append((u, v))
+            min_edges.append((u, v))
             union(parent, u, v)
 
-    return mst_edges
+    return min_edges
 
 def find_parent(parent, vertex):
     if parent[vertex] != vertex:
@@ -41,14 +41,14 @@ def find_bridges(matrix):
     bridges = []
     for edge in mst_edges:
         u, v = edge
-        temp_matrix = [row[:] for row in matrix]
-        temp_matrix[u][v] = temp_matrix[v][u] = 0
+        copy_matrix = [row[:] for row in matrix]
+        copy_matrix[u][v] = copy_matrix[v][u] = 0
 
-        visited = [False] * len(temp_matrix)
+        visited = [False] * len(copy_matrix)
         components = 0
-        for i in range(len(temp_matrix)):
+        for i in range(len(copy_matrix)):
             if not visited[i]:
-                find_components(i, visited, temp_matrix)
+                find_components(i, visited, copy_matrix)
                 components += 1
 
         if components > 1:
